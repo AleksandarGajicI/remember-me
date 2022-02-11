@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #2a2b33;
+        }
+        td {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            vertical-align: middle;
+            border-collapse: separate;
+        }
+        .item {
+            border: 2px solid #ffffff;
+            margin: 20px;
+            height: inherit;
+            width: inherit;
+        }
+        .item:hover {
+            border: 2px solid #15478d;
+            cursor: pointer;
+        }
+        button {
+            background-color: transparent;
+            color: #ffffff;
+        }
+        .table-div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <%- include('../partials/header'); %>
+</head>
+<body>
+    <div class="table-div">
+        <table>
+            <tr>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('mipl')">
+                        Mipl
+                    </button>
+                </td>
+                <td>
+                    <button class="item" onclick="sendEmail('escape_room');">
+                        Escape room
+                    </button>
+                </td>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('zabac')" >
+                        Zabac
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('movie_night')">
+                        Movie night
+                    </button>
+                </td>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('cooking_date')">
+                        Cooking date
+                    </button>
+                </td>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('dinner_date')">
+                        Dinner date
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('shopping')">
+                        Shopping
+                    </button>
+                </td>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('coffee_drink')">
+                        Coffee / drink
+                    </button>
+                </td>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('sweets')">
+                        Sweets
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('party')">
+                        Party
+                    </button>
+                </td>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('walk')">
+                        Walk
+                    </button>
+                </td>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('code')">
+                        Code
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="item" type="button" onclick="sendEmail('mistery');">
+                        Mistery
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        async function sendEmail(option, email) {
+            console.log(option);
+            const userEmail = '<%- JSON.stringify(email) %>';
+            await fetch('http://localhost:5000/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ option: option, email: userEmail })
+            });
+        }
+    </script>
+</body>
+</html>
