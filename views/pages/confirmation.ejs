@@ -2,14 +2,42 @@
 <html lang="en">
 <head>
     <style>
+        body {
+            background-color: #2a2b33;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
         .thank-you {
             color: #ffffff;
-            font-size: 15;
+            font-size: 30px;
+            margin-top: -100px;
+            padding: 10px;
+            text-align: center;
+        }
+        .back_to_beginning_div {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .back_to_beginning_link {
+            text-decoration: none;
+            padding: 5px 10px 5px 10px;
+            color: #ffffff;
+            border-top: 1px solid #ffffff;
+            border-right: 1px solid #ffffff;
+            border-bottom: 1px solid #ffffff;
+            border-left: 1px solid #ffffff;
+        }
+        .back_to_beginning_link:hover {
+            color: #15478d;
+            border-top: 1px solid #15478d;
+            border-right: 1px solid #15478d;
+            border-bottom: 1px solid #15478d;
+            border-left: 1px solid #15478d;
         }
     </style>
     <%- include('../partials/header'); %>
 </head>
 <body>
-    <div class="thank-you">Thank you for letting the other person know</div>
+    <div class="thank-you">Thank you for letting the other person know!</div>
+    <div class="back_to_beginning_div"><a class="back_to_beginning_link" href="/">Back to beginning</a></div>
 </body>
 </html>
