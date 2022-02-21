@@ -37,6 +37,7 @@ app.post("/choose", (req: Request, res: Response) =>
 app.post("/sendEmail", (req: Request, res: Response) => {
   const { option, email } = req.body;
 
+  console.log(option, email);
   return sendEmail(option)(email)
     .then((_) => {
       res.status(200);
