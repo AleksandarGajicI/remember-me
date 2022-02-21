@@ -150,7 +150,7 @@
         async function sendEmail(option, email) {
             const userEmail = '<%- JSON.stringify(email) %>';
             const url = '<%= host %>' + '/sendEmail'
-            console.log(url);
+            
             await fetch(url, {
                 method: 'POST',
                 headers: {
