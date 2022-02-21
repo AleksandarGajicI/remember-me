@@ -151,7 +151,7 @@
             showLoader();
             const userEmail = '<%- JSON.stringify(email) %>';
             const url = '<%= host %>' + '/sendEmail'
-            console.log(url)l
+            console.log(url);
             await fetch(url, {
                 method: 'POST',
                 headers: {
