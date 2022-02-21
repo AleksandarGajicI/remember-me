@@ -30,7 +30,7 @@ app.post("/choose", (req: Request, res: Response) =>
   res.render("pages/choose", {
     option: 0,
     email: req.body.email,
-    host: `${process.env.REMEMBER_ME_HOST}:${port}`,
+    host: "",
   })
 );
 
