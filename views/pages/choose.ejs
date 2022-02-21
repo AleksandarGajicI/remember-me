@@ -151,6 +151,7 @@
             showLoader();
             const userEmail = '<%- JSON.stringify(email) %>';
             const url = '<%= host %>' + '/sendEmail'
+            console.log(url)l
             await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -165,7 +166,8 @@
 
                 hideLoader();
                 navigateToConfirmationPage();
-            });
+            })
+            .catch(console.log);
         }
         function showError() {
             document.getElementById('error_div').innerHTML = 'Sorry there was an error please try again later';
