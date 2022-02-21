@@ -148,9 +148,10 @@
     <%- include('../partials/loader'); %>
     <script>
         async function sendEmail(option, email) {
+            showLoader();
             const userEmail = '<%- JSON.stringify(email) %>';
             const url = '<%= host %>' + '/sendEmail'
-            
+
             await fetch(url, {
                 method: 'POST',
                 headers: {
