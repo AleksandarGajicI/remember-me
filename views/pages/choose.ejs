@@ -148,7 +148,6 @@
     <%- include('../partials/loader'); %>
     <script>
         async function sendEmail(option, email) {
-            showLoader();
             const userEmail = '<%- JSON.stringify(email) %>';
             const url = '<%= host %>' + '/sendEmail'
             console.log(url);
@@ -160,7 +159,6 @@
                 body: JSON.stringify({ option: option, email: userEmail })
             })
             .then(res => {
-                console.log(res);
                 hideLoader();
 
                 if(res.status !== 200) {
@@ -168,8 +166,7 @@
                 }
 
                 navigateToConfirmationPage();
-            })
-            .catch(console.log);
+            });
         }
         function showError() {
             document.getElementById('error_div').innerHTML = 'Sorry there was an error please try again later';

@@ -10,6 +10,10 @@ process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 
 const port = process.env.PORT || 5000;
 
+const host = process.env.REMEMBER_ME_HOST
+  ? `${process.env.REMEMBER_ME_HOST}:${port}`
+  : "";
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
@@ -30,7 +34,7 @@ app.post("/choose", (req: Request, res: Response) =>
   res.render("pages/choose", {
     option: 0,
     email: req.body.email,
-    host: "",
+    host: host,
   })
 );
 
