@@ -8,11 +8,13 @@ const app = express();
 
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 
+const port = process.env.PORT || 5000;
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(port, () => {
   console.info("Server listening...");
 });
 
@@ -25,7 +27,11 @@ app.get("/confirmation", (_, res: Response) =>
 );
 
 app.post("/choose", (req: Request, res: Response) =>
-  res.render("pages/choose", { email: req.body.email, option: 0 })
+  res.render("pages/choose", {
+    option: 0,
+    email: req.body.email,
+    host: `${process.env.REMEMBER_ME_HOST}:${port}`,
+  })
 );
 
 app.post("/sendEmail", (req: Request, res: Response) => {
