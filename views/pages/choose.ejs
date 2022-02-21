@@ -160,11 +160,13 @@
                 body: JSON.stringify({ option: option, email: userEmail })
             })
             .then(res => {
+                console.log(res);
+                hideLoader();
+
                 if(res.status !== 200) {
                     return showError();
                 }
 
-                hideLoader();
                 navigateToConfirmationPage();
             })
             .catch(console.log);
