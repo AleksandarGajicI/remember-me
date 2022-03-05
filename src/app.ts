@@ -41,15 +41,19 @@ app.post("/choose", (req: Request, res: Response) =>
 app.post("/sendEmail", (req: Request, res: Response) => {
   const { option, email } = req.body;
 
-  return sendEmail(option)(email)
-    .then((_) => {
-      res.status(200);
-      return res.json({});
-    })
-    .catch((_) => {
-      res.status(400);
-      return res.json({});
-    });
+  res.status(200);
+  return res.json({
+    message: "Success",
+  });
+  // return sendEmail(option)(email)
+  //   .then((_) => {
+  //     res.status(200);
+  //     return res.json({});
+  //   })
+  //   .catch((_) => {
+  //     res.status(400);
+  //     return res.json({});
+  //   });
 });
 
 app.get("*", (_, res: Response) => {
